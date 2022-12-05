@@ -1,0 +1,53 @@
+--- /dev/null
++++ b/setup.py
+@@ -0,0 +1,50 @@
++from setuptools import setup
++
++setup(
++     name='vs-lan-gateway-server',
++     version='1.13',
++     description='An example server for the Vossloh-Schwabe LAN-Gateway',
++     author='Vossloh Schwabe Deutschland GmbH',
++     url='UNKNOWN',
++     license='MIT',
++     packages=['vs_lan_gateway_server', 'vs_lan_gateway_server.update'],
++     keywords='vossloh-schwabe,lan-gateway',
++     classifiers=[
++         'Programming Language :: Python :: 3.10',
++         'Natural Language :: English',
++         'Operating System :: POSIX',
++         'Environment :: Console',
++         'Development Status :: 4 - Beta',
++         'Programming Language :: Python :: 3.9',
++         'Programming Language :: Python :: 3.7',
++         'License :: OSI Approved :: MIT License',
++         'Operating System :: MacOS',
++         'Environment :: Web Environment',
++         'Operating System :: Microsoft',
++         'Programming Language :: Python :: 3 :: Only',
++         'Framework :: Flask',
++         'Programming Language :: Python :: 3.8',
++     ],
++     python_requires='>=3.7',
++     install_requires=[
++         'dill',
++         'flask',
++         'flask-httpauth',
++         'prompt-toolkit (>=3.0.8)',
++     ],
++     entry_points={
++         'console_scripts': [
++             'vs_lan_gateway_server = vs_lan_gateway_server.__main__:main'
++         ]
++     },
++     include_package_data=True,
++     package_data={
++         '': [
++             'static/*.*',
++             'templates/*.*',
++             'update/get_key.dill',
++             'b2l_network.dill',
++             'events.json',
++         ]
++     },
++)

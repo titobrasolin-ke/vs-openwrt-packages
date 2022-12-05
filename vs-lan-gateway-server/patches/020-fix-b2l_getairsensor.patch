@@ -1,0 +1,11 @@
+--- a/vs_lan_gateway_server/b2l_getairsensor.py
++++ b/vs_lan_gateway_server/b2l_getairsensor.py
+@@ -74,7 +74,7 @@ def get_air_sensor_handler(socket_id: in
+     conf_type = {
+         'sensorID': dec_data[3],
+         'interval': dec_data[4],
+-        'lowerThreshold': none],
++        'lowerThreshold': none,
+         'higherThreshold': none,
+         'nodeid': cmd[0][1],
+         'system': config.address_list[socket_id].mac_addr,
