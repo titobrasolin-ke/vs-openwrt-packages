@@ -9,7 +9,6 @@ USE_PROCD=1
 start_service() {
     procd_open_instance
     procd_set_param command vs_lan_gateway_server # service executable that has to run in **foreground**.
-    procd_append_param command --nodb
     procd_append_param command --daemon
     procd_set_param respawn
     procd_set_param stdout 1

@@ -13,11 +13,12 @@ include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/python3-vs-lan-gateway-server
-  SUBMENU:=Domotica
-  SECTION:=net
-  CATEGORY:=Network
+  SECTION:=lang-python
+  CATEGORY:=Languages
+  SUBMENU:=Python
+  URL:=https://www.vossloh-schwabe.com/en/products/light-management-indoor/blu2light-iot-devices/blu2light-gateway
   TITLE:=An example server for the Vossloh-Schwabe LAN-Gateway
-  DEPENDS:=+python3-sslpsk2
+  DEPENDS:=+python3-sslpsk2 +python3-influxdb
   PKGARCH:=all
   VARIANT:=python3
 endef
