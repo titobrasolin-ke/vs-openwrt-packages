@@ -1,11 +1,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python3-vs-lan-gateway-server
-PKG_VERSION:=1.13
+PKG_VERSION:=1.15
 PKG_RELEASE:=1
 PKG_SOURCE:=b2l_gateway_Demo_server_$(PKG_VERSION).zip
 PKG_SOURCE_URL:=https://www.vossloh-schwabe.com/fileadmin/perfion/files
-PKG_MD5SUM:=29a2b1024610e69262de900971fef3c6
+PKG_MD5SUM:=407e3f4028e0d77ff5f71f95a77fc89c
 
 UNPACK_CMD=unzip -q -o -d $(1) -j $(DL_DIR)/$(PKG_SOURCE) install_files/vs_lan_gateway_server-$(PKG_VERSION)-py3-none-any.whl
 

@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=lan-gateway
-PKG_VERSION:=1.13
+PKG_VERSION:=1.15
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk

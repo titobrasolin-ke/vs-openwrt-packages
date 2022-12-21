@@ -5,7 +5,7 @@
 +
 +setup(
 +     name='vs-lan-gateway-server',
-+     version='1.13',
++     version='1.15',
 +     description='An example server for the Vossloh-Schwabe LAN-Gateway',
 +     author='Vossloh Schwabe Deutschland GmbH',
 +     url='UNKNOWN',
