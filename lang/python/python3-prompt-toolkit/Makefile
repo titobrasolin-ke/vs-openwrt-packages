@@ -7,13 +7,9 @@ PKG_RELEASE:=$(AUTORELEASE)
 PYPI_NAME:=prompt-toolkit
 PKG_HASH:=3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63
 
-#PKG_MAINTAINER:=
-#PKG_LICENSE:=
-#PKG_LICENSE_FILES:=
-
-include ../pypi.mk
+include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
-include ../python3-package.mk
+include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
 define Package/python3-prompt-toolkit
   SECTION:=lang
