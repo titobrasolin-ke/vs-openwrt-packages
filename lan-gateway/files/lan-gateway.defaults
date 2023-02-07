@@ -1,0 +1,44 @@
+#!/bin/sh
+
+lanGatewayConfig="/etc/config/vs_lan_gateway_server"
+jsonFile="/etc/vs_lan_gateway_server/config.json"
+
+first_boot_genConfig()
+{
+  . /usr/share/libubox/jshn.sh
+
+  json_load_file "${jsonFile}" >/dev/null 2>&1
+  if ! json_select web >/dev/null 2>&1; then
+    mkdir -p "$(dirname "$jsonFile")"
+
+    web_password="kerberos"
+    web_password=`python3 -c "from werkzeug.security import generate_password_hash; print(generate_password_hash(\"$web_password\"))"`
+
+    json_init
+    json_add_object 'web'
+    json_add_string username 'root'
+    json_add_string password "$web_password"
+    json_close_object
+    json_dump >"${jsonFile}"
+  fi
+
+  touch ${lanGatewayConfig}
+
+  uci set vs_lan_gateway_server.config=vs_lan_gateway_server
+  uci set vs_lan_gateway_server.config.debug=0
+  uci set vs_lan_gateway_server.config.nodb=1
+  uci set vs_lan_gateway_server.config.nortc=0
+  uci commit vs_lan_gateway_server
+}
+
+if [ ! -e ${lanGatewayConfig} ]; then
+  echo "first_boot: adding details in NEW config: ${lanGatewayConfig}" | logger -t lan-gateway
+
+  first_boot_genConfig
+
+else
+  :
+fi
+
+exit 0
+
