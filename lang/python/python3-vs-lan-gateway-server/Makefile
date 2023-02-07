@@ -36,10 +36,6 @@ endef
 define Build/Configure
 endef
 
-define Package/python3-vs-lan-gateway-server/conffiles
-/var/vs_lan_gateway_server/config.json
-endef
-
 $(eval $(call Py3Package,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)-src))

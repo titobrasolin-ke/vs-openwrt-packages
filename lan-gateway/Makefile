@@ -19,6 +19,11 @@ define Package/lan-gateway/description
 OpenWrt package for the Vossloh-Schwabe LAN-Gateway Server Demo.
 endef
 
+define Package/lan-gateway/conffiles
+/etc/vs_lan_gateway_server/
+/etc/config/vs_lan_gateway_server
+endef
+
 define Build/Compile
 endef
 
