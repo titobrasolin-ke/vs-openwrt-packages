@@ -6,13 +6,26 @@ STOP=5
 
 USE_PROCD=1
 
+LAN_GATEWAY_DAEMON=1
+LAN_GATEWAY_CONFIG_FILE=/etc/vs_lan_gateway_server/config.json
+LAN_GATEWAY_DASHBOARD_DIR=/etc/vs_lan_gateway_server/dashboards
+
 start_service() {
+    config_load vs_lan_gateway_server
+    config_get_bool LAN_GATEWAY_DEBUG config 'debug' '0'
+    config_get_bool LAN_GATEWAY_NO_DB config 'nodb' '1'
+    config_get_bool LAN_GATEWAY_NO_RTC config 'nortc' '0'
+
     procd_open_instance
     procd_set_param command vs_lan_gateway_server # service executable that has to run in **foreground**.
-    procd_append_param command --daemon
     procd_set_param respawn
+    procd_append_param env "LAN_GATEWAY_DEBUG=$LAN_GATEWAY_DEBUG"
+    procd_append_param env "LAN_GATEWAY_NO_DB=$LAN_GATEWAY_NO_DB"
+    procd_append_param env "LAN_GATEWAY_DAEMON=$LAN_GATEWAY_DAEMON"
+    procd_append_param env "LAN_GATEWAY_NO_RTC=$LAN_GATEWAY_NO_RTC"
+    procd_append_param env "LAN_GATEWAY_CONFIG_FILE=$LAN_GATEWAY_CONFIG_FILE"
+    procd_append_param env "LAN_GATEWAY_DASHBOARD_DIR=$LAN_GATEWAY_DASHBOARD_DIR"
     procd_set_param stdout 1
     procd_set_param stderr 1
     procd_close_instance
 }
-

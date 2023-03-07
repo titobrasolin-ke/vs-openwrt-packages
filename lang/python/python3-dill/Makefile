@@ -1,27 +1,27 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=python3-sslpsk2
-PKG_VERSION:=1.0.2
+PKG_NAME:=python3-dill
+PKG_VERSION:=0.3.6
 PKG_RELEASE:=$(AUTORELEASE)
 
-PYPI_NAME:=sslpsk2
-PKG_HASH:=8498d7625389f21fa1d1ab9fa68a5a44860a66b3ef50534e70d19f3ca8a510cd
+PYPI_NAME:=dill
+PKG_HASH:=e5db55f3687856d8fbdab002ed78544e1c4559a130302693d839dfe8f93f2373
 
 include $(TOPDIR)/feeds/packages/lang/python/pypi.mk
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
 
-define Package/python3-sslpsk2
+define Package/python3-dill
   SECTION:=lang
   CATEGORY:=Languages
   SUBMENU:=Python
-  TITLE:=Adds TLS-PSK support to the Python ssl package
-  URL:=https://github.com/autinerd/sslpsk2
-  DEPENDS:=+libopenssl +python3-light
+  TITLE:=serialize all of python
+  URL:=https://github.com/uqfoundation/dill
+  DEPENDS:=+python3-light
 endef
 
-define Package/python3-sslpsk2/description
-Adds TLS-PSK support to the Python ssl package
+define Package/python3-dill/description
+serialize all of python
 endef
 
 $(eval $(call Py3Package,$(PKG_NAME)))

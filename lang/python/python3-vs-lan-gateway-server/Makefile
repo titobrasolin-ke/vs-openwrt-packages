@@ -18,7 +18,7 @@ define Package/python3-vs-lan-gateway-server
   SUBMENU:=Python
   URL:=https://www.vossloh-schwabe.com/en/products/light-management-indoor/blu2light-iot-devices/blu2light-gateway
   TITLE:=An example server for the Vossloh-Schwabe LAN-Gateway
-  DEPENDS:=+python3-sslpsk2 +python3-influxdb +python3-prompt-toolkit
+  DEPENDS:=+python3-sslpsk2 +python3-influxdb +python3-prompt-toolkit +python3-dill +python3-flask-httpauth
   PKGARCH:=all
   VARIANT:=python3
 endef
@@ -34,10 +34,6 @@ define Build/Prepare
 endef
 
 define Build/Configure
-endef
-
-define Package/python3-vs-lan-gateway-server/conffiles
-/var/vs_lan_gateway_server/config.json
 endef
 
 $(eval $(call Py3Package,$(PKG_NAME)))
